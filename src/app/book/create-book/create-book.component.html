@@ -1,0 +1,41 @@
+<h1>Create Book</h1>
+<a routerLink="/">list book</a>
+<br><br>
+<form [formGroup]="bookForm" (ngSubmit)="create()">
+  <div>
+    <label for="name">Ten sach: </label>
+    <input type="text" id="name" formControlName="name">
+  </div>
+  <div *ngIf="nameControl.touched && nameControl.invalid">
+    <p style="color: red" *ngIf="nameControl.errors?.required">Truong nay bat buoc phai nhap</p>
+  </div>
+  <br>
+  <div>
+    <label for="price">Gia sach: </label>
+    <input type="text" id="price" formControlName="price">
+  </div>
+  <br>
+  <div>
+    <label for="author">Tac gia: </label>
+    <input type="text" id="author" formControlName="author">
+  </div>
+  <br>
+  <div>
+    <label for="image">Avatar: </label>
+    <input type="file" id="image" (change)="onFileSelected($event)">
+  </div>
+  <br>
+  <div>
+    <label for="category">The loai: </label>
+    <select id="category" formControlName="category">
+      <option [ngValue]="null" >Chon danh muc</option>
+      <ng-container *ngFor="let category of categories">
+        <option [value]="category.id">{{category.name}}</option>
+      </ng-container>
+    </select>
+  </div>
+  <br>
+  <div>
+    <button>Tao moi</button>
+  </div>
+</form>

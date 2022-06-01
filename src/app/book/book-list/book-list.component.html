@@ -1,0 +1,25 @@
+<h1>List Book</h1>
+<a routerLink="/create">Them sach</a>
+<br><br>
+<table>
+  <tr>
+    <th>Stt</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Author</th>
+    <th>Avatar</th>
+    <th>Category</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <tr *ngFor="let book of books;index as i">
+    <td>{{i+1}}</td>
+    <td>{{book.name}}</td>
+    <td>{{book.price}}</td>
+    <td>{{book.author}}</td>
+    <td><img src="http://localhost:8080/image/{{book.image}}" width="100" alt=""></td>
+    <td>{{book.category.name}}</td>
+    <td><a [routerLink]="['/edit', book.id]">Edit</a></td>
+    <td><a [routerLink]="['/delete', book.id]">Delete</a></td>
+  </tr>
+</table>

@@ -1,0 +1,28 @@
+<h1>Xoa sach</h1>
+<a routerLink="/">list book</a>
+<form [formGroup]="bookForm" (ngSubmit)="delete(id)">
+  <input type="hidden" id="id" formControlName="id">
+  <div>
+    <label for="name">Ten sach</label>
+    <input type="text" id="name" formControlName="name">
+  </div>
+  <div>
+    <label for="price">Gia sach</label>
+    <input type="text" id="price" formControlName="price">
+  </div>
+  <div>
+    <label for="author">Tac gia</label>
+    <input type="text" id="author" formControlName="author">
+  </div>
+  <div>
+    <label for="image"></label>
+    <input type="file" id="image" (change)="onFileSelected($event)">
+  </div>
+  <div>
+    <label for="category">The loai</label>
+    <input type="text" id="category" formControlName="category">
+  </div>
+  <div>
+    <button>Delete</button>
+  </div>
+</form>
